@@ -17,6 +17,6 @@ Created delete functions for each message, but haven't implemented it on the fro
 ----------------------------------------------
 IMPLEMENTED(5/31/2017)
 
-- Messages are timestamped and ordered by ascending timestamps.
+- Messages are timestamped and ordered by ascending timestamps. Clicking on the message body displays the timestamp.
 - Created a 'clear conversation' button to delete all messages.
 - Some other minor changes.
