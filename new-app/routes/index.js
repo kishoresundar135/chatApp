@@ -41,9 +41,9 @@ router.param('post', function(req, res, next, id) {
     });
 });
 
-router.delete('/posts/:post', function(req, res) {
+router.delete('/posts/', function(req, res) {
     Post.remove({
-        _id: req.params.post
+        //_id: req.params.post
     }, function(err, post) {
         if (err) { return next(err); }
 

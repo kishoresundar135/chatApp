@@ -21,13 +21,18 @@
   <div class="container">
     <div class="row">
         <h2 style="padding-bottom:10px">Message</h2>
-        <div ng-repeat="post in posts">
+        <div ng-repeat="post in posts| orderBy: 'timestamp'">
           <span style="font-size:14px; margin-left:5px;">
-              {{post.msg}}
-            </span>
-        </div>
-      </div>
+            <span ng-click="isClick = !isClick"><blockquote><p>{{post.msg}}<div ng-show="isClick" id="click">
+              {{post.timestamp}}</p>
+            </div></blockquote></span>
 
+          </span>
+        </div>
+        <span ng-click="deletePost()">
+          <a href="#" style = "float:center" class="btn btn-default"> Clear conversation</a>
+        </span>
+      </div>
   </div>
 
   <form ng-submit="addPost()" style="margin-top:30px;">

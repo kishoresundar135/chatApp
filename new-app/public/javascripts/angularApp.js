@@ -29,17 +29,20 @@ angular.module('chatApp', ['ui.router'])
 
             $scope.posts = posts.posts;
             $scope.addPost = function() {
+
                 if ($scope.msg === '') { return; }
                 posts.create({
+
                     msg: $scope.msg,
-                    link: $scope.link,
+                    timestamp: Date(),
                 });
                 $scope.msg = '';
-                $scope.link = '';
+                posts.getAll();
+                //$scope.link = '';
             };
 
-            $scope.deletePost = function(post) {
-                posts.delete(post);
+            $scope.deletePost = function() {
+                posts.delete();
             }
 
         }])
@@ -63,9 +66,9 @@ angular.module('chatApp', ['ui.router'])
                 o.posts.push(data);
             });
         };
-      
-        o.delete = function(post) {
-            return $http.delete('/posts/' + post._id).success(function(data) {
+
+        o.delete = function() {
+            return $http.delete('/posts/').success(function(data) {
                 angular.copy(data, o.posts);
             });
         }
